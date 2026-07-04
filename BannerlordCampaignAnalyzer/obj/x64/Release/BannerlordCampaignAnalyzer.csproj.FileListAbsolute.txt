@@ -1,0 +1,9 @@
+E:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\BannerlordCampaignAnalyzer\bin\Win64_Shipping_Client\BannerlordCampaignAnalyzer.dll
+E:\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\BannerlordCampaignAnalyzer\bin\Win64_Shipping_Client\BannerlordCampaignAnalyzer.pdb
+C:\Modding\BannerlordCampaignAnalyzer\obj\x64\Release\BannerlordCampaignAnalyzer.csproj.AssemblyReference.cache
+C:\Modding\BannerlordCampaignAnalyzer\obj\x64\Release\BannerlordCampaignAnalyzer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Modding\BannerlordCampaignAnalyzer\obj\x64\Release\BannerlordCampaignAnalyzer.AssemblyInfoInputs.cache
+C:\Modding\BannerlordCampaignAnalyzer\obj\x64\Release\BannerlordCampaignAnalyzer.AssemblyInfo.cs
+C:\Modding\BannerlordCampaignAnalyzer\obj\x64\Release\BannerlordCampaignAnalyzer.csproj.CoreCompileInputs.cache
+C:\Modding\BannerlordCampaignAnalyzer\obj\x64\Release\BannerlordCampaignAnalyzer.dll
+C:\Modding\BannerlordCampaignAnalyzer\obj\x64\Release\BannerlordCampaignAnalyzer.pdb

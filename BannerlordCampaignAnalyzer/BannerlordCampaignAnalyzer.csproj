@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>0.3.0</Version>
+    <AssemblyVersion>0.3.0.0</AssemblyVersion>
+    <FileVersion>0.3.0.0</FileVersion>
+    <InformationalVersion>0.3.0</InformationalVersion>
+    <TargetFramework>net48</TargetFramework>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <Configurations>Debug;Release</Configurations>
+    <Platforms>x64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BannerlordCampaignAnalyzer</RootNamespace>
+    <AssemblyName>BannerlordCampaignAnalyzer</AssemblyName>
+    <ModuleId>BannerlordCampaignAnalyzer</ModuleId>
+    <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>$(NoWarn);CS8632</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(BANNERLORD_GAME_DIR)' != ''">
+    <OutputPath>$(BANNERLORD_GAME_DIR)\Modules\$(ModuleId)\bin\Win64_Shipping_Client\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(BANNERLORD_GAME_DIR)' == ''">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(BANNERLORD_GAME_DIR)' != ''">
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.*.dll" Exclude="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Native.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\Native\bin\Win64_Shipping_Client\*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\SandBox\bin\Win64_Shipping_Client\*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\SandBoxCore\bin\Win64_Shipping_Client\*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\StoryMode\bin\Win64_Shipping_Client\*.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\Bannerlord.Harmony\bin\Win64_Shipping_Client\0Harmony.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(BANNERLORD_GAME_DIR)' == ''">
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.Core" Version="1.4.5.114896" IncludeAssets="compile" PrivateAssets="all" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.Native" Version="1.4.5.114896" IncludeAssets="compile" PrivateAssets="all" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.SandBox" Version="1.4.5.114896" IncludeAssets="compile" PrivateAssets="all" />
+    <PackageReference Include="Bannerlord.ReferenceAssemblies.StoryMode" Version="1.4.5.114896" IncludeAssets="compile" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(BANNERLORD_GAME_DIR)' == ''">
+    <PackageReference Include="Lib.Harmony" Version="2.2.2" IncludeAssets="compile" />
+  </ItemGroup>
+
+  <Target Name="DeployModuleAssets" AfterTargets="Build" Condition="'$(BANNERLORD_GAME_DIR)' != ''">
+    <ItemGroup>
+      <ModuleAssets Include="$(MSBuildProjectDirectory)\_Module\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ModuleAssets)"
+          DestinationFiles="@(ModuleAssets->'$(BANNERLORD_GAME_DIR)\Modules\$(ModuleId)\%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="false"
+          OverwriteReadOnlyFiles="true" />
+  </Target>
+
+</Project>

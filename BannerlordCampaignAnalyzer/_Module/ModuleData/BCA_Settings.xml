@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnalyzerConfig>
+  <Enabled>true</Enabled>
+  <AutoPatchCampaignBehaviorTicks>true</AutoPatchCampaignBehaviorTicks>
+  <IncludeTaleWorldsBehaviors>true</IncludeTaleWorldsBehaviors>
+  <PatchManualMethods>true</PatchManualMethods>
+  <MinimumLogMilliseconds>5</MinimumLogMilliseconds>
+  <SpikeLogMilliseconds>50</SpikeLogMilliseconds>
+  <SummaryEverySeconds>60</SummaryEverySeconds>
+  <TopMethodsInSummary>25</TopMethodsInSummary>
+  <RotateAfterBytes>5242880</RotateAfterBytes>
+  <RotatedFileCount>5</RotatedFileCount>
+  <LogExceptions>true</LogExceptions>
+  <WriteLoadedMethodList>true</WriteLoadedMethodList>
+  <IncludeContextOnSpikes>true</IncludeContextOnSpikes>
+  <IncludeContextOnExceptions>true</IncludeContextOnExceptions>
+  <IncludeContextOnSlow>false</IncludeContextOnSlow>
+  <SlowContextMilliseconds>25</SlowContextMilliseconds>
+  <MaxContextCharacters>900</MaxContextCharacters>
+  <MaxContextObjects>5</MaxContextObjects>
+  <DoctorEnabled>true</DoctorEnabled>
+  <DoctorAutoAlerts>true</DoctorAutoAlerts>
+  <DoctorAlertSpikeCount>5</DoctorAlertSpikeCount>
+  <DoctorAlertMinimumMilliseconds>50</DoctorAlertMinimumMilliseconds>
+  <DoctorTopSuspects>5</DoctorTopSuspects>
+  <MethodNameContains>
+    <string>Tick</string>
+    <string>Hourly</string>
+    <string>Daily</string>
+    <string>Weekly</string>
+  </MethodNameContains>
+  <AssemblyNameDenyList>
+    <string>BannerlordCampaignAnalyzer</string>
+    <string>0Harmony</string>
+    <string>Harmony</string>
+    <string>mscorlib</string>
+    <string>System</string>
+    <string>System.Core</string>
+  </AssemblyNameDenyList>
+  <ManualMethods>
+    <string>TaleWorlds.CampaignSystem.Campaign:DailyTick</string>
+    <string>TaleWorlds.CampaignSystem.Campaign:HourlyTick</string>
+    <string>TaleWorlds.CampaignSystem.Campaign:WeeklyTick</string>
+  </ManualMethods>
+</AnalyzerConfig>
